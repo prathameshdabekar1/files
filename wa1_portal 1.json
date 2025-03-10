@@ -1,0 +1,39 @@
+{
+	"arcgis": {
+		"version": "11.4",
+		"run_as_user": "arcgisservice",
+		"hosts": {
+			"vm-pprdsfagp-001.safefleetcloud.com":	"172.21.4.54",
+			"vm-pprdsfagp-002.safefleetcloud.com":	"172.21.4.55",
+			"vm-pprdsfags-001.safefleetcloud.com":	"172.21.4.52",
+			"vm-pprdsfags-002.safefleetcloud.com":	"172.21.4.53",
+			"vm-pprdsfds-001.safefleetcloud.com":	"172.21.4.69",
+			"vm-pprdsfds-002.safefleetcloud.com":	"172.21.4.68",
+			"vm-pprdsfwa-001.safefleetcloud.com":	"172.21.4.36",
+			"vm-pprdsfwa-002.safefleetcloud.com":	"172.21.4.37"
+		},
+		"configure_cloud_settings": false,
+		"cache_authorization_files": true,
+		"web_server": {
+			"webapp_dir": "/opt/tomcat_arcgis_9.0.98/webapps"
+		},
+		"web_adaptor": {
+			"setup_archive": "/mnt/sffileshare/arcgis_repo/setups/ArcGIS_Web_Adaptor_Java_Linux_114_192983.tar.gz",
+			"install_dir": "/home/arcgisservice",
+			"admin_access": true,
+			"reindex_portal_content": false
+		},
+		"portal": {
+			"url": "https://vm-pprdsfagp-001.safefleetcloud.com:7443/arcgis",
+			"wa_url": "https://vm-pprdsfwa-001.safefleetcloud.com/portal",
+			"admin_username": "portaladmin",
+			"admin_password": "Sffleet2025",
+			"wa_name": "portal"
+		}
+	},
+	"run_list": [
+		"recipe[arcgis-enterprise::system]",
+		"recipe[arcgis-enterprise::hosts]",
+		"recipe[arcgis-enterprise::portal_wa]"
+	]
+}
