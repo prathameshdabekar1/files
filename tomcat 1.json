@@ -1,0 +1,19 @@
+{
+    "java": {
+        "version": "11.0.21+9",
+        "tarball_path": "/mnt/sffileshare/arcgis_repo/setups/OpenJDK11U-jdk_x64_linux_hotspot_11.0.21_9.tar.gz"
+    },
+    "tomcat": {
+        "version": "9.0.98",
+        "tarball_path": "/mnt/sffileshare/arcgis_repo/setups/apache-tomcat-9.0.98.tar.gz",
+        "install_path": "/opt/tomcat_arcgis_9.0.98",
+        "keystore_file": "/mnt/sffileshare/arcgis_repo/ssl/selfsignedsf.pfx",
+        "keystore_type": "pkcs12",
+        "keystore_password": "sf123"
+    },
+    "run_list": [
+        "recipe[arcgis-enterprise::system]",
+        "recipe[esri-tomcat::openjdk]",
+        "recipe[esri-tomcat]"
+    ]
+}
